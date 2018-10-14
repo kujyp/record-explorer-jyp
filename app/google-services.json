@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1064265620140",
+    "firebase_url": "https://record-explorer-jyp.firebaseio.com",
+    "project_id": "record-explorer-jyp",
+    "storage_bucket": "record-explorer-jyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064265620140:android:0db291b27e0fbcfd",
+        "android_client_info": {
+          "package_name": "com.yangyinetwork.recordexplorerjyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064265620140-mfqbd7ia2n32lk4md7100fu2iesdata6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yangyinetwork.recordexplorerjyp",
+            "certificate_hash": "c245fcc65ee07255e5c8a23f77c3cc91b670489e"
+          }
+        },
+        {
+          "client_id": "1064265620140-fm9kpokg3ktpc89rfqsin46fc8hdovqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7FP-jy0wwgRRHzpiVBU8ooAaL-jXLsgg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064265620140-fm9kpokg3ktpc89rfqsin46fc8hdovqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
