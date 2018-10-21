@@ -34,7 +34,7 @@ import io.reactivex.functions.Consumer;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    private String[] mPermissions = new String[]{
+    private final String[] mPermissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
     };
@@ -80,9 +80,37 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "checkAudioFiles: directory=" + directory);
         File[] files = directory.listFiles();
 
+        int renamedCount = 0;
         for (File eachFile : files) {
-            uploadFileIfNotUploaded(eachFile);
+            if (isDefaultFilename(eachFile)) {
+                if (!rename(eachFile, enname(eachFile))) {
+                    appendLog(String.format(
+                            "Rename fail file=[%s], rename=[%s]",
+                            eachFile.getName(), enname(eachFile)));
+                }
+                renamedCount++;
+            }
+//            uploadFileIfNotUploaded(eachFile);
         }
+        appendLog(String.format("Rename done %d files.", renamedCount));
+    }
+
+    private void appendLog(String content) {
+        TextView tvHelloWorld = findViewById(R.id.tv_helloworld);
+        tvHelloWorld.setText(tvHelloWorld.getText() + "\n" + content);
+    }
+
+    private boolean isDefaultFilename(File file) {
+        boolean ret = file.getName().startsWith("Voice ");
+        Log.d(TAG, "isDefaultFilename() called with: file = [" + file + "]" + ", ret=" + ret);
+        return ret;
+    }
+
+    private boolean rename(File file, String name) {
+        File renameFile = new File(file.getParent() + "/" + name);
+        Log.d(TAG, "rename() called with: file = [" + file + "], renameFile = [" + renameFile + "]");
+        return file.renameTo(renameFile);
+//        return true;
     }
 
     private void uploadFileIfNotUploaded(final File file) {
